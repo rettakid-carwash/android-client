@@ -1,0 +1,52 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="user" type="za.co.rettakid.carwash.vo.UserVo"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.userEmail}"
+            android:inputType="text"/>
+        <EditText android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.userPassword}"
+            android:inputType="text"/>
+        <EditText android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.userName}"
+            android:inputType="text"/>
+        <EditText android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.userSurname}"
+            android:inputType="text"/>
+        <EditText android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.userNumber}"
+            android:inputType="text"/>
+        <EditText android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.userGender}"
+            android:inputType="text"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getUser"
+            android:text="get user" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="putUser"
+            android:text="put user" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="postUser"
+            android:text="post user" />
+    </LinearLayout>
+
+</layout>

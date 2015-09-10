@@ -1,29 +1,31 @@
-package rettakid.carwash;
+package za.co.rettakid.carwash.dto;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
+
 @Root
 public class UserDto   {
 
-    @Element
+    @Element(name = "userid")
     private Integer userId;
-    @Element
+    @Element(name = "useremail")
     private String userEmail;
-    @Element
+    @Element(name = "userpassword")
     private String userPassword;
-    @Element
+    @Element(name = "username")
     private String userName;
-    @Element
+    @Element(name = "usersurname")
     private String userSurname;
-    @Element
+    @Element(name = "usernumber")
     private String userNumber;
-    @Element
+    @Element(name = "usergender")
     private String userGender;
-    @Element
+    @Element(name = "userage")
     private Integer userAge;
-    @Element
+    @Element(name = "userallowpush")
     private Boolean userAllowPush;
+
 
     public Integer getUserId()   {
         return this.userId;
@@ -97,4 +99,18 @@ public class UserDto   {
         this.userAllowPush = userAllowPush;
     }
 
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "userId=" + userId +
+                ", userEmail='" + userEmail + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userSurname='" + userSurname + '\'' +
+                ", userNumber='" + userNumber + '\'' +
+                ", userGender='" + userGender + '\'' +
+                ", userAge=" + userAge +
+                ", userAllowPush=" + userAllowPush +
+                '}';
+    }
 }
