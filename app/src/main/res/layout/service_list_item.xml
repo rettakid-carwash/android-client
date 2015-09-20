@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/service_list_icon"
+        android:layout_alignParentStart="true"
+        android:layout_width="@dimen/icon_circle_size"
+        android:layout_height="@dimen/icon_circle_size"
+        android:layout_margin="@dimen/margin"
+        android:padding="@dimen/margin_half"
+        android:background="@drawable/icon_circle">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/ic_menu_white_24dp"
+            android:contentDescription="@string/cont_desc_service_icon"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/service_list_icon"
+        android:layout_toStartOf="@+id/service_list_select_icon"
+        android:orientation="vertical"
+        android:padding="@dimen/margin">
+
+        <TextView
+            android:id="@+id/service_item_header"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size"
+            android:layout_gravity="center_vertical"
+            android:text="@string/content_template_heading"
+            android:textSize="@dimen/font_header"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/service_item_body"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_size"
+            android:layout_gravity="center_vertical"
+            android:text="@string/content_template_sub_heading"
+            android:textSize="@dimen/font_par" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/service_list_select_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_margin="@dimen/margin"
+        android:padding="@dimen/margin_half"
+        android:background="@drawable/list_icon_select_box_unselected" />
+
+</RelativeLayout>

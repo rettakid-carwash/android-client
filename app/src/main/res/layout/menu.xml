@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menu_header"
+        android:background="@color/color_primary_dark">
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/icon_size"
+        android:text="@string/menu_user_profile"
+        android:textSize="@dimen/font_header"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/margin"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/icon_size"
+        android:text="@string/menu_news"
+        android:textSize="@dimen/font_header"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/margin"
+        android:textStyle="bold"
+        android:onClick="openMenuNews"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/icon_size"
+        android:text="@string/menu_services"
+        android:textSize="@dimen/font_header"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/margin"
+        android:textStyle="bold"
+        android:onClick="openMenuServices"/>
+
+</LinearLayout>

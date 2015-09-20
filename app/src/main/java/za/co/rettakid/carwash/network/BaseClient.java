@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -18,16 +19,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import za.co.rettakid.carwash.utils.CarWashErrorCode;
-import za.co.rettakid.carwash.utils.CarshWashRuntimeError;
+import za.co.rettakid.carwash.utils.errorhandling.CarWashErrorCode;
+import za.co.rettakid.carwash.utils.errorhandling.CarshWashRuntimeError;
 
-public class BaseClient extends AsyncTask<Object, Void, Object> {
+public class BaseClient {
 
-    protected String baseUrl = "http://192.168.1.37:80/pacs/xml.php";
+    protected String baseUrl = "http://41.185.28.23/server-php/xml.php";
     protected RestTemplate restTemplate = new RestTemplate();
-    protected Context context;
 
-    public BaseClient(String localUrl) {
+    public BaseClient(String localUrl, Context context) {
         restTemplate.getMessageConverters().add(new SimpleXmlHttpMessageConverter());
         restTemplate.setErrorHandler(new ResponseErrorHandler() {
             @Override
@@ -37,8 +37,8 @@ public class BaseClient extends AsyncTask<Object, Void, Object> {
 
             @Override
             public void handleError(ClientHttpResponse response) throws IOException {
-                Log.i("response - code",response.getStatusText());
-                Log.i("response - stream",response.getBody().toString());
+                Log.i("response - code", response.getStatusText());
+                Log.i("response - stream", response.getBody().toString());
             }
 
         });
@@ -48,36 +48,19 @@ public class BaseClient extends AsyncTask<Object, Void, Object> {
         ris.add(ri);
         restTemplate.setInterceptors(ris);
         restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-
         this.baseUrl = this.baseUrl + localUrl;
     }
 
-    protected String createUrl()    {
+    protected String createUrl() {
         return baseUrl;
     }
 
-    protected String createUrl(String url)    {
+    protected String createUrl(String url) {
         return baseUrl + url;
     }
 
     public RestTemplate getRestTemplate() {
         return restTemplate;
-    }
-
-    protected void checkNetworkConnection() {
-        ConnectivityManager connMgr = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-
-        } else {
-            throw new CarshWashRuntimeError(CarWashErrorCode.CANNOT_FIND_CONNECTION);
-        }
-    }
-
-    @Override
-    protected Object doInBackground(Object... params) {
-        checkNetworkConnection();
-        return null;
     }
 
 }
